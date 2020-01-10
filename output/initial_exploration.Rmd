@@ -1,0 +1,60 @@
+---
+title: "Initial Data Exploration"
+output: 
+  word_document: default
+  html_notebook: default
+---
+
+## Purpose
+
+This document does a very cursory exploration of the data included for the health care (HC) data files.  There are three and each will have its own section.
+
+# HC Chronic
+
+```{r load_packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+```
+```{r load_chronic, echo=FALSE, message=FALSE, warning=FALSE}
+HC_Chronic <- read_excel("C:/Users/l2eve/OneDrive/Documents/repo/dat_410/data/health_care_files_for_final_project/HC_Chronic.xlsx")
+```
+```{r show_truncated_table, echo=FALSE, message=FALSE, warning=FALSE}
+short_chronic <- head(HC_Chronic) %>%
+  select(-`2012`, -`2011`, -`2010`, -`2009`, -`2008`, -`2007`) %>%
+  knitr::kable()
+```
+Below is a truncated table to help visualize the raw data that is provided.
+
+`r short_chronic`
+
+The columns included are:
+```{r list_columns, echo=FALSE, results='asis'}
+chronic_col <- colnames(HC_Chronic)
+cat(paste('-', chronic_col), sep = '\n')
+```
+
+The columns with year indicators likely have the calculation '*characteristic multiplier factors*' which is the value we will eventually be forecasting.  The ID column is a unique identifier for each row and won't really be of use during the analysis.  Data set is an indicator for which data set it comes from Chronic, Insurance, or Vaccinations.  This will only become useful should the analysis require all three data sets to be appended.  This leaves Label, Characteristic, and Chronic Condidtions as the dimensions that will drive the analytic.
+
+To that end, each of these dimension contains the following values:
+
+```{r label_values, echo=FALSE, results='asis'}
+HC_Chronic %>%
+  select(Label) %>%
+  unique() %>%
+  knitr::kable()
+```
+
+```{r characterisic_values, echo=FALSE, results='asis'}
+HC_Chronic %>%
+  select(Characteristic) %>%
+  unique() %>%
+  knitr::kable()
+```
+
+```{r chronic_value, echo=FALSE, results='asis'}
+HC_Chronic %>%
+  select(`Chronic Conditions`) %>%
+  unique() %>%
+  knitr::kable()
+```
+
