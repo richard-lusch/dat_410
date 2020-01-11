@@ -2035,10 +2035,694 @@ summary {
 
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>The case study says of the chronic data:</p>
+<p>For chronic illness, provide the top three label/characteristics for each group: 1 chronic illness, 2–3 chronic illness, and 4+ chronic illness. For the identified top three, generate a multiplier and coefficient by forecasting the next value using 2002 through 2012.</p>
+<p>This means to me, we’ll need to decide on how to quantify and rank these groups using the yearly multiplier and coefficient. Some initial ways that this might be done are to just sum the coefficients for the entire time frame, use an average, use a mean, use a median, or even use a weighted mean.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-plot-begin eyJjb25kaXRpb25zIjpbXSwiaGVpZ2h0Ijo0MzIuNjMyOSwic2l6ZV9iZWhhdmlvciI6MCwid2lkdGgiOjcwMH0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">Label</th>
+<th align="left">Characteristic</th>
+<th align="left">Chronic Conditions</th>
+<th align="right">summed</th>
+<th align="right">avg</th>
+<th align="right">med</th>
+<th align="right">n.val</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-24 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">1063.5</td>
+<td align="right">96.6818182</td>
+<td align="right">96.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">18-44 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">1021.6</td>
+<td align="right">92.8727273</td>
+<td align="right">93.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-64 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">916.1</td>
+<td align="right">83.2818182</td>
+<td align="right">83.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">25-44 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">1006.8</td>
+<td align="right">91.5272727</td>
+<td align="right">91.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">45-54 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">843.4</td>
+<td align="right">76.6727273</td>
+<td align="right">77.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">45-64 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">761.1</td>
+<td align="right">69.1909091</td>
+<td align="right">69.9</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">55-64 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">652.3</td>
+<td align="right">59.3000000</td>
+<td align="right">59.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">65-74 years</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">482.9</td>
+<td align="right">43.9000000</td>
+<td align="right">43.8</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">65 years and over</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">444.6</td>
+<td align="right">40.4181818</td>
+<td align="right">40.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">75 years and over</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">399.8</td>
+<td align="right">36.3454545</td>
+<td align="right">36.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">Midwest</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">839.3</td>
+<td align="right">76.3000000</td>
+<td align="right">76.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">Northeast</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">864.1</td>
+<td align="right">78.5545455</td>
+<td align="right">78.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">South</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">831.1</td>
+<td align="right">75.5545455</td>
+<td align="right">76.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">West</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">868.5</td>
+<td align="right">78.9545455</td>
+<td align="right">79.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Insured</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">925.5</td>
+<td align="right">84.1363636</td>
+<td align="right">84.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Medicaid</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">765.0</td>
+<td align="right">69.5454545</td>
+<td align="right">69.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Private</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">950.6</td>
+<td align="right">86.4181818</td>
+<td align="right">86.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Uninsured</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">952.4</td>
+<td align="right">86.5818182</td>
+<td align="right">86.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">100%-199%</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">813.3</td>
+<td align="right">73.9363636</td>
+<td align="right">74.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">200%-399%</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">846.4</td>
+<td align="right">76.9454545</td>
+<td align="right">77.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">400% or more</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">880.8</td>
+<td align="right">80.0727273</td>
+<td align="right">80.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">Below 100%</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">771.6</td>
+<td align="right">70.1454545</td>
+<td align="right">69.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="left">Female</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">835.2</td>
+<td align="right">75.9272727</td>
+<td align="right">76.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="left">Male</td>
+<td align="left">0-1 chronic conditions</td>
+<td align="right">859.9</td>
+<td align="right">78.1727273</td>
+<td align="right">78.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-24 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">35.1</td>
+<td align="right">3.1909091</td>
+<td align="right">3.2</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">18-44 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">72.5</td>
+<td align="right">6.5909091</td>
+<td align="right">6.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-64 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">157.5</td>
+<td align="right">14.3181818</td>
+<td align="right">13.9</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">25-44 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">85.5</td>
+<td align="right">7.7727273</td>
+<td align="right">7.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">45-54 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">220.9</td>
+<td align="right">20.0818182</td>
+<td align="right">19.8</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">45-64 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">282.4</td>
+<td align="right">25.6727273</td>
+<td align="right">25.2</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">55-64 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">364.5</td>
+<td align="right">33.1363636</td>
+<td align="right">33.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">65-74 years</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">481.2</td>
+<td align="right">43.7454545</td>
+<td align="right">43.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">65 years and over</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">502.6</td>
+<td align="right">45.6909091</td>
+<td align="right">46.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">75 years and over</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">527.2</td>
+<td align="right">47.9272727</td>
+<td align="right">48.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">Midwest</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">211.9</td>
+<td align="right">19.2636364</td>
+<td align="right">19.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">Northeast</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">197.3</td>
+<td align="right">17.9363636</td>
+<td align="right">18.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">South</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">217.6</td>
+<td align="right">19.7818182</td>
+<td align="right">19.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">West</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">192.3</td>
+<td align="right">17.4818182</td>
+<td align="right">17.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Insured</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">150.2</td>
+<td align="right">13.6545455</td>
+<td align="right">13.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Medicaid</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">241.6</td>
+<td align="right">21.9636364</td>
+<td align="right">21.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Private</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">134.9</td>
+<td align="right">12.2636364</td>
+<td align="right">12.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Uninsured</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">128.3</td>
+<td align="right">11.6636364</td>
+<td align="right">11.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">100%-199%</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">222.4</td>
+<td align="right">20.2181818</td>
+<td align="right">20.2</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">200%-399%</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">210.5</td>
+<td align="right">19.1363636</td>
+<td align="right">19.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">400% or more</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">188.1</td>
+<td align="right">17.1000000</td>
+<td align="right">17.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">Below 100%</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">244.1</td>
+<td align="right">22.1909091</td>
+<td align="right">22.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="left">Female</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">217.1</td>
+<td align="right">19.7363636</td>
+<td align="right">19.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="left">Male</td>
+<td align="left">2-3 chronic conditions</td>
+<td align="right">195.9</td>
+<td align="right">17.8090909</td>
+<td align="right">17.6</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-24 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">0.0</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">18-44 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">6.0</td>
+<td align="right">0.5454545</td>
+<td align="right">0.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">18-64 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">26.5</td>
+<td align="right">2.4090909</td>
+<td align="right">2.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">25-44 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">7.7</td>
+<td align="right">0.7000000</td>
+<td align="right">0.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">45-54 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">35.9</td>
+<td align="right">3.2636364</td>
+<td align="right">3.2</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">45-64 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">56.3</td>
+<td align="right">5.1181818</td>
+<td align="right">5.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">55-64 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">83.2</td>
+<td align="right">7.5636364</td>
+<td align="right">7.9</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">65-74 years</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">135.9</td>
+<td align="right">12.3545455</td>
+<td align="right">12.0</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Age</td>
+<td align="left">65 years and over</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">152.8</td>
+<td align="right">13.8909091</td>
+<td align="right">13.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="left">75 years and over</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">172.8</td>
+<td align="right">15.7090909</td>
+<td align="right">15.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">Midwest</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">49.0</td>
+<td align="right">4.4545455</td>
+<td align="right">4.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">Northeast</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">38.4</td>
+<td align="right">3.4909091</td>
+<td align="right">3.5</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Geo</td>
+<td align="left">South</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">51.3</td>
+<td align="right">4.6636364</td>
+<td align="right">4.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Geo</td>
+<td align="left">West</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">39.0</td>
+<td align="right">3.5454545</td>
+<td align="right">3.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Insured</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">24.2</td>
+<td align="right">2.2000000</td>
+<td align="right">2.2</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Medicaid</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">93.5</td>
+<td align="right">8.5000000</td>
+<td align="right">8.4</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">InsStatus</td>
+<td align="left">Private</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">14.6</td>
+<td align="right">1.3272727</td>
+<td align="right">1.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">InsStatus</td>
+<td align="left">Uninsured</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">19.3</td>
+<td align="right">1.7545455</td>
+<td align="right">1.7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">100%-199%</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">64.0</td>
+<td align="right">5.8181818</td>
+<td align="right">6.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">200%-399%</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">43.1</td>
+<td align="right">3.9181818</td>
+<td align="right">3.8</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Pct Poverty</td>
+<td align="left">400% or more</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">31.2</td>
+<td align="right">2.8363636</td>
+<td align="right">2.8</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Pct Poverty</td>
+<td align="left">Below 100%</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">84.4</td>
+<td align="right">7.6727273</td>
+<td align="right">8.1</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="left">Female</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">47.5</td>
+<td align="right">4.3181818</td>
+<td align="right">4.3</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="left">Male</td>
+<td align="left">4 or more chronic conditions</td>
+<td align="right">44.5</td>
+<td align="right">4.0454545</td>
+<td align="right">4.1</td>
+<td align="right">11</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkluaXRpYWwgRGF0YSBFeHBsb3JhdGlvbiINCm91dHB1dDogDQogIHdvcmRfZG9jdW1lbnQ6IGRlZmF1bHQNCiAgaHRtbF9ub3RlYm9vazogZGVmYXVsdA0KLS0tDQoNCiMjIFB1cnBvc2UNCg0KVGhpcyBkb2N1bWVudCBkb2VzIGEgdmVyeSBjdXJzb3J5IGV4cGxvcmF0aW9uIG9mIHRoZSBkYXRhIGluY2x1ZGVkIGZvciB0aGUgaGVhbHRoIGNhcmUgKEhDKSBkYXRhIGZpbGVzLiAgVGhlcmUgYXJlIHRocmVlIGFuZCBlYWNoIHdpbGwgaGF2ZSBpdHMgb3duIHNlY3Rpb24uDQoNCiMgSEMgQ2hyb25pYw0KDQpgYGB7ciBsb2FkX3BhY2thZ2VzLCBlY2hvPUZBTFNFLCBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpsaWJyYXJ5KHJlYWR4bCkNCmBgYA0KYGBge3IgbG9hZF9jaHJvbmljLCBlY2hvPUZBTFNFLCBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQ0KSENfQ2hyb25pYyA8LSByZWFkX2V4Y2VsKCJDOi9Vc2Vycy9sMmV2ZS9PbmVEcml2ZS9Eb2N1bWVudHMvcmVwby9kYXRfNDEwL2RhdGEvaGVhbHRoX2NhcmVfZmlsZXNfZm9yX2ZpbmFsX3Byb2plY3QvSENfQ2hyb25pYy54bHN4IikNCmBgYA0KYGBge3Igc2hvd190cnVuY2F0ZWRfdGFibGUsIGVjaG89RkFMU0UsIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQpzaG9ydF9jaHJvbmljIDwtIGhlYWQoSENfQ2hyb25pYykgJT4lDQogIHNlbGVjdCgtYDIwMTJgLCAtYDIwMTFgLCAtYDIwMTBgLCAtYDIwMDlgLCAtYDIwMDhgLCAtYDIwMDdgKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KQmVsb3cgaXMgYSB0cnVuY2F0ZWQgdGFibGUgdG8gaGVscCB2aXN1YWxpemUgdGhlIHJhdyBkYXRhIHRoYXQgaXMgcHJvdmlkZWQuDQoNCmByIHNob3J0X2Nocm9uaWNgDQoNClRoZSBjb2x1bW5zIGluY2x1ZGVkIGFyZToNCmBgYHtyIGxpc3RfY29sdW1ucywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpjaHJvbmljX2NvbCA8LSBjb2xuYW1lcyhIQ19DaHJvbmljKQ0KY2F0KHBhc3RlKCctJywgY2hyb25pY19jb2wpLCBzZXAgPSAnXG4nKQ0KYGBgDQoNClRoZSBjb2x1bW5zIHdpdGggeWVhciBpbmRpY2F0b3JzIGxpa2VseSBoYXZlIHRoZSBjYWxjdWxhdGlvbiAnKmNoYXJhY3RlcmlzdGljIG11bHRpcGxpZXIgZmFjdG9ycyonIHdoaWNoIGlzIHRoZSB2YWx1ZSB3ZSB3aWxsIGV2ZW50dWFsbHkgYmUgZm9yZWNhc3RpbmcuICBUaGUgSUQgY29sdW1uIGlzIGEgdW5pcXVlIGlkZW50aWZpZXIgZm9yIGVhY2ggcm93IGFuZCB3b24ndCByZWFsbHkgYmUgb2YgdXNlIGR1cmluZyB0aGUgYW5hbHlzaXMuICBEYXRhIHNldCBpcyBhbiBpbmRpY2F0b3IgZm9yIHdoaWNoIGRhdGEgc2V0IGl0IGNvbWVzIGZyb20gQ2hyb25pYywgSW5zdXJhbmNlLCBvciBWYWNjaW5hdGlvbnMuICBUaGlzIHdpbGwgb25seSBiZWNvbWUgdXNlZnVsIHNob3VsZCB0aGUgYW5hbHlzaXMgcmVxdWlyZSBhbGwgdGhyZWUgZGF0YSBzZXRzIHRvIGJlIGFwcGVuZGVkLiAgVGhpcyBsZWF2ZXMgTGFiZWwsIENoYXJhY3RlcmlzdGljLCBhbmQgQ2hyb25pYyBDb25kaWR0aW9ucyBhcyB0aGUgZGltZW5zaW9ucyB0aGF0IHdpbGwgZHJpdmUgdGhlIGFuYWx5dGljLg0KDQpUbyB0aGF0IGVuZCwgZWFjaCBvZiB0aGVzZSBkaW1lbnNpb24gY29udGFpbnMgdGhlIGZvbGxvd2luZyB2YWx1ZXM6DQoNCmBgYHtyIGxhYmVsX3ZhbHVlcywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpIQ19DaHJvbmljICU+JQ0KICBzZWxlY3QoTGFiZWwpICU+JQ0KICB1bmlxdWUoKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KDQpgYGB7ciBjaGFyYWN0ZXJpc2ljX3ZhbHVlcywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpIQ19DaHJvbmljICU+JQ0KICBzZWxlY3QoQ2hhcmFjdGVyaXN0aWMpICU+JQ0KICB1bmlxdWUoKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KDQpgYGB7ciBjaHJvbmljX3ZhbHVlLCBlY2hvPUZBTFNFLCByZXN1bHRzPSdhc2lzJ30NCkhDX0Nocm9uaWMgJT4lDQogIHNlbGVjdChgQ2hyb25pYyBDb25kaXRpb25zYCkgJT4lDQogIHVuaXF1ZSgpICU+JQ0KICBrbml0cjo6a2FibGUoKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkluaXRpYWwgRGF0YSBFeHBsb3JhdGlvbiINCm91dHB1dDogDQogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQNCiAgd29yZF9kb2N1bWVudDogZGVmYXVsdA0KLS0tDQoNCiMjIFB1cnBvc2UNCg0KVGhpcyBkb2N1bWVudCBkb2VzIGEgdmVyeSBjdXJzb3J5IGV4cGxvcmF0aW9uIG9mIHRoZSBkYXRhIGluY2x1ZGVkIGZvciB0aGUgaGVhbHRoIGNhcmUgKEhDKSBkYXRhIGZpbGVzLiAgVGhlcmUgYXJlIHRocmVlIGFuZCBlYWNoIHdpbGwgaGF2ZSBpdHMgb3duIHNlY3Rpb24uDQoNCiMgSEMgQ2hyb25pYw0KDQpgYGB7ciBsb2FkX3BhY2thZ2VzLCBlY2hvPUZBTFNFLCBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpsaWJyYXJ5KHJlYWR4bCkNCmBgYA0KYGBge3IgbG9hZF9jaHJvbmljLCBlY2hvPUZBTFNFLCBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQ0KSENfQ2hyb25pYyA8LSByZWFkX2V4Y2VsKCJDOi9Vc2Vycy9sMmV2ZS9PbmVEcml2ZS9Eb2N1bWVudHMvcmVwby9kYXRfNDEwL2RhdGEvaGVhbHRoX2NhcmVfZmlsZXNfZm9yX2ZpbmFsX3Byb2plY3QvSENfQ2hyb25pYy54bHN4IikNCmBgYA0KYGBge3Igc2hvd190cnVuY2F0ZWRfdGFibGUsIGVjaG89RkFMU0UsIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQpzaG9ydF9jaHJvbmljIDwtIGhlYWQoSENfQ2hyb25pYykgJT4lDQogIHNlbGVjdCgtYDIwMTJgLCAtYDIwMTFgLCAtYDIwMTBgLCAtYDIwMDlgLCAtYDIwMDhgLCAtYDIwMDdgKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KQmVsb3cgaXMgYSB0cnVuY2F0ZWQgdGFibGUgdG8gaGVscCB2aXN1YWxpemUgdGhlIHJhdyBkYXRhIHRoYXQgaXMgcHJvdmlkZWQuDQoNCmByIHNob3J0X2Nocm9uaWNgDQoNClRoZSBjb2x1bW5zIGluY2x1ZGVkIGFyZToNCmBgYHtyIGxpc3RfY29sdW1ucywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpjaHJvbmljX2NvbCA8LSBjb2xuYW1lcyhIQ19DaHJvbmljKQ0KY2F0KHBhc3RlKCctJywgY2hyb25pY19jb2wpLCBzZXAgPSAnXG4nKQ0KYGBgDQoNClRoZSBjb2x1bW5zIHdpdGggeWVhciBpbmRpY2F0b3JzIGxpa2VseSBoYXZlIHRoZSBjYWxjdWxhdGlvbiAnKmNoYXJhY3RlcmlzdGljIG11bHRpcGxpZXIgZmFjdG9ycyonIHdoaWNoIGlzIHRoZSB2YWx1ZSB3ZSB3aWxsIGV2ZW50dWFsbHkgYmUgZm9yZWNhc3RpbmcuICBUaGUgSUQgY29sdW1uIGlzIGEgdW5pcXVlIGlkZW50aWZpZXIgZm9yIGVhY2ggcm93IGFuZCB3b24ndCByZWFsbHkgYmUgb2YgdXNlIGR1cmluZyB0aGUgYW5hbHlzaXMuICBEYXRhIHNldCBpcyBhbiBpbmRpY2F0b3IgZm9yIHdoaWNoIGRhdGEgc2V0IGl0IGNvbWVzIGZyb20gQ2hyb25pYywgSW5zdXJhbmNlLCBvciBWYWNjaW5hdGlvbnMuICBUaGlzIHdpbGwgb25seSBiZWNvbWUgdXNlZnVsIHNob3VsZCB0aGUgYW5hbHlzaXMgcmVxdWlyZSBhbGwgdGhyZWUgZGF0YSBzZXRzIHRvIGJlIGFwcGVuZGVkLiAgVGhpcyBsZWF2ZXMgTGFiZWwsIENoYXJhY3RlcmlzdGljLCBhbmQgQ2hyb25pYyBDb25kaWR0aW9ucyBhcyB0aGUgZGltZW5zaW9ucyB0aGF0IHdpbGwgZHJpdmUgdGhlIGFuYWx5dGljLg0KDQpUbyB0aGF0IGVuZCwgZWFjaCBvZiB0aGVzZSBkaW1lbnNpb24gY29udGFpbnMgdGhlIGZvbGxvd2luZyB2YWx1ZXM6DQoNCmBgYHtyIGxhYmVsX3ZhbHVlcywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpIQ19DaHJvbmljICU+JQ0KICBzZWxlY3QoTGFiZWwpICU+JQ0KICB1bmlxdWUoKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KDQpgYGB7ciBjaGFyYWN0ZXJpc2ljX3ZhbHVlcywgZWNobz1GQUxTRSwgcmVzdWx0cz0nYXNpcyd9DQpIQ19DaHJvbmljICU+JQ0KICBzZWxlY3QoQ2hhcmFjdGVyaXN0aWMpICU+JQ0KICB1bmlxdWUoKSAlPiUNCiAga25pdHI6OmthYmxlKCkNCmBgYA0KDQpgYGB7ciBjaHJvbmljX3ZhbHVlLCBlY2hvPUZBTFNFLCByZXN1bHRzPSdhc2lzJ30NCkhDX0Nocm9uaWMgJT4lDQogIHNlbGVjdChgQ2hyb25pYyBDb25kaXRpb25zYCkgJT4lDQogIHVuaXF1ZSgpICU+JQ0KICBrbml0cjo6a2FibGUoKQ0KYGBgDQoNClRoZSBjYXNlIHN0dWR5IHNheXMgb2YgdGhlIGNocm9uaWMgZGF0YToNCg0KRm9yIGNocm9uaWMgaWxsbmVzcywgcHJvdmlkZSB0aGUgdG9wIHRocmVlIGxhYmVsL2NoYXJhY3RlcmlzdGljcyBmb3IgZWFjaCBncm91cDogMSBjaHJvbmljIGlsbG5lc3MsDQoy4oCTMyBjaHJvbmljIGlsbG5lc3MsIGFuZCA0KyBjaHJvbmljIGlsbG5lc3MuIEZvciB0aGUgaWRlbnRpZmllZCB0b3AgdGhyZWUsIGdlbmVyYXRlIGEgbXVsdGlwbGllciBhbmQNCmNvZWZmaWNpZW50IGJ5IGZvcmVjYXN0aW5nIHRoZSBuZXh0IHZhbHVlIHVzaW5nIDIwMDIgdGhyb3VnaCAyMDEyLg0KDQpUaGlzIG1lYW5zIHRvIG1lLCB3ZSdsbCBuZWVkIHRvIGRlY2lkZSBvbiBob3cgdG8gcXVhbnRpZnkgYW5kIHJhbmsgdGhlc2UgZ3JvdXBzIHVzaW5nIHRoZSB5ZWFybHkgbXVsdGlwbGllciBhbmQgY29lZmZpY2llbnQuICBTb21lIGluaXRpYWwgd2F5cyB0aGF0IHRoaXMgbWlnaHQgYmUgZG9uZSBhcmUgdG8ganVzdCBzdW0gdGhlIGNvZWZmaWNpZW50cyBmb3IgdGhlIGVudGlyZSB0aW1lIGZyYW1lLCB1c2UgYW4gYXZlcmFnZSwgdXNlIGEgbWVhbiwgdXNlIGEgbWVkaWFuLCBvciBldmVuIHVzZSBhIHdlaWdodGVkIG1lYW4uDQoNCmBgYHtyIGRhdGFfbXVuZ2luZywgZWNobz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmNocm9uaWMubG9uZyA8LSBIQ19DaHJvbmljICU+JQ0KICBwaXZvdF9sb25nZXIoYygtSUQsIC1gRGF0YXNldGAsIC1MYWJlbCwgLWBDaHJvbmljIENvbmRpdGlvbnNgLCAtQ2hhcmFjdGVyaXN0aWMpLCBuYW1lc190byA9ICJ5ZWFyIikNCg0KY2hyb25pYy5zdW1tYXJ5IDwtIGNocm9uaWMubG9uZyAlPiUNCiAgZ3JvdXBfYnkoTGFiZWwsIENoYXJhY3RlcmlzdGljLCBgQ2hyb25pYyBDb25kaXRpb25zYCkgJT4lDQogIHN1bW1hcml6ZShzdW1tZWQgPSBzdW0odmFsdWUsIG5hLnJtID0gVFJVRSksDQogICAgICAgICAgICBhdmcgPSBtZWFuKHZhbHVlLCBuYS5ybSA9IFRSVUUpLA0KICAgICAgICAgICAgbWVkID0gbWVkaWFuKHZhbHVlLCBuYS5ybSA9IFRSVUUpLA0KICAgICAgICAgICAgbi52YWwgPSBuKCkpICU+JQ0KICBhcnJhbmdlKGBDaHJvbmljIENvbmRpdGlvbnNgLCBMYWJlbCwgQ2hhcmFjdGVyaXN0aWMpDQpgYGANCmBgYHtyIGNocm9uaWMuYm94cGxvdCwgZWNobz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmdncGxvdChjaHJvbmljLmxvbmcsIGFlcyh4ID0gYENocm9uaWMgQ29uZGl0aW9uc2AsIHkgPSB2YWx1ZSwgZmlsbCA9IExhYmVsKSkgKw0KICBnZW9tX2JveHBsb3Qob3V0bGllci5jb2xvciA9ICJyZWQiLCBvdXRsaWVyLmFscGhhID0gMC41KSArDQogIGdndGhlbWVzOjp0aGVtZV90dWZ0ZSgpICsNCiAgZ2d0aGVtZXM6OnNjYWxlX2ZpbGxfaGMoKQ0KYGBgDQpgYGB7ciB2aWV3X3N1bV90YmwsIGVjaG89RkFMU0UsIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQprbml0cjo6a2FibGUoY2hyb25pYy5zdW1tYXJ5KQ0KYGBgDQoNCg==</div>
 
 
 

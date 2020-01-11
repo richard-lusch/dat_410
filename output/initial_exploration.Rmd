@@ -1,8 +1,8 @@
 ---
 title: "Initial Data Exploration"
 output: 
-  word_document: default
   html_notebook: default
+  word_document: default
 ---
 
 ## Purpose
@@ -56,5 +56,35 @@ HC_Chronic %>%
   select(`Chronic Conditions`) %>%
   unique() %>%
   knitr::kable()
+```
+
+The case study says of the chronic data:
+
+For chronic illness, provide the top three label/characteristics for each group: 1 chronic illness,
+2–3 chronic illness, and 4+ chronic illness. For the identified top three, generate a multiplier and
+coefficient by forecasting the next value using 2002 through 2012.
+
+This means to me, we'll need to decide on how to quantify and rank these groups using the yearly multiplier and coefficient.  Some initial ways that this might be done are to just sum the coefficients for the entire time frame, use an average, use a mean, use a median, or even use a weighted mean.
+
+```{r data_munging, echo=FALSE, message=FALSE, warning=FALSE}
+chronic.long <- HC_Chronic %>%
+  pivot_longer(c(-ID, -`Dataset`, -Label, -`Chronic Conditions`, -Characteristic), names_to = "year")
+
+chronic.summary <- chronic.long %>%
+  group_by(Label, Characteristic, `Chronic Conditions`) %>%
+  summarize(summed = sum(value, na.rm = TRUE),
+            avg = mean(value, na.rm = TRUE),
+            med = median(value, na.rm = TRUE),
+            n.val = n()) %>%
+  arrange(`Chronic Conditions`, Label, Characteristic)
+```
+```{r chronic.boxplot, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(chronic.long, aes(x = `Chronic Conditions`, y = value, fill = Label)) +
+  geom_boxplot(outlier.color = "red", outlier.alpha = 0.5) +
+  ggthemes::theme_tufte() +
+  ggthemes::scale_fill_hc()
+```
+```{r view_sum_tbl, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::kable(chronic.summary)
 ```
 
